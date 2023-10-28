@@ -1,0 +1,119 @@
+{% extends 'master.html' %}; {% load static %}
+{% block content %}
+
+
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="font-family: Vazir, serif">رزرو میز</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
+
+    <!-- Start Reservation -->
+    <div class="reservation-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading-title text-center">
+                        <h2 style="font-family:Vazir">رزرو</h2>
+                        <p>رزرو میز در بهترین رستوران خاورمیانه</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="contact-block">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>رزرو کردن</h3>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input id="input_date" class="datepicker picker__input form-control"
+                                                   name="date" type="text" value=""
+                                                   required data-error="Please enter Date" placeholder="2023-xx-xx">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input id="input_time" class="time form-control picker__input" name="time"
+                                                   required data-error="Please enter time" placeholder="xx:xx:xx">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <select class="custom-select d-block form-control" id="person" name="number"
+                                                    required data-error="Please select Person">
+                                                <option disabled selected>تعداد نفرات *</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                            </select>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>اطلاعات تماس</h3>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                   placeholder="نام و نام خانوادگی" required
+                                                   data-error="لطفا نام خود را وارد کنید">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="آدرس الکترونیکی" id="email"
+                                                   class="form-control" name="email" required
+                                                   data-error="لطفا ایمیل خود را وارد کنید">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="شماره تلفن" id="phone" class="form-control"
+                                                   name="phone" required data-error="لطفا شماره خود را وارد کنید">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="submit-button text-center">
+                                        <button class="btn btn-common" id="submit" type="submit">رزرو</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#	<div class="reservation-box">#}
+    {#		<div class="container">#}
+    {#			<form method="post">#}
+    {#                {% csrf_token %}#}
+    {#                {{ form }}#}
+    {#                <button type="submit">رزرو</button>#}
+    {#            </form>#}
+    {#		</div>#}
+    {#	</div>#}
+    <!-- End Reservation -->
+
+{% endblock content %}

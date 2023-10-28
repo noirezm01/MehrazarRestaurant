@@ -1,0 +1,61 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <style>
+        .food-description {
+            margin: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
+        }
+
+        .food-description h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center; /* Center the text on all screen sizes */
+        }
+
+        .food-description p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center; /* Center the text on all screen sizes */
+        }
+
+        .food-description ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .food-description li {
+            font-size: 14px;
+            text-align: center; /* Center the text on all screen sizes */
+        }
+
+        .food-description img {
+            max-width: 100%; /* Make the image responsive */
+            display: block;
+            margin: 0 auto; /* Center the image on all screen sizes */
+        }
+    </style>
+
+    <div class="food-description">
+        <img src="{{ food.photo.url }}" alt="{{ food.name }}">
+        <h1><b>{{ food.name }}</b></h1>
+        <p>{{ food.description }}</p>
+        <ul>
+            <li>قیمت: {{ food.price }} تومان</li>
+            <li>امتیاز: {{ food.rate }} درصد</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+{% endblock content %}
